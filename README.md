@@ -6,7 +6,7 @@
 ---------------------------
 
 Wyświetlanie  akatywności z svxlink na TG oraz informacji systemowych
-na wyswietlaczach typu OLED poprzez sieć internet.
+na wyswietlaczach typu LCD2004 poprzez sieć internet.
 
 Wyświetlacz podpiety do płytki Wemos D1 mini na bazie ESP8266
 

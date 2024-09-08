@@ -1,0 +1,15 @@
+On Data1* Do
+ LCDCmd,clear
+ LCDCmd,on
+ LCD,2,1,"%eventvalue1%"
+ LCD,3,1,"%eventvalue2%"
+Endon
+On Data2* Do
+ LCD,1,1,"%systm_hm% %eventvalue4%"
+ LCD,2,1,"%eventvalue2%"
+ LCD,3,1,"%eventvalue1%"
+ LCD,4,1,"%eventvalue3%"
+Endon
+On Clock#Time=All,00:00 Do
+ Reboot
+EndOn

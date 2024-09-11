@@ -9,7 +9,7 @@
 #
 # Offset temperatury CPU dla OZPI V1 LTS wynosi 30 
 # dla innych komputerow SBC  ustawic 0
-temp_offset = 0
+temp_offset = 30
 
 import argparse
 import configparser
@@ -80,7 +80,7 @@ def status1_ip_msg(ipa,cl,tc,tga,refs):
   global ip_address
   ipad = "IP "+str(ipa)
   status = "CPU: "+str(cl)+"%  TEMP: "+str(tc)+"{D}C"
-  payload = {'cmd':'event,Data2="'+f'{ipad:^20}'+'","'+str(status)+'","'+f'{tga:^20}'+'","'+str(refs)+'"'}
+  payload = {'cmd':'event,Data2="'+f'{ipad:^20}'+'","'+str(status)+'","'+f'{unidecode(tga):^20}'+'","'+str(refs)+'"'}
   try:
       response = requests.get('http://'+ip_address+'/control', params=payload, timeout=1)
       response.raise_for_status()
@@ -99,7 +99,7 @@ def status2_ip_msg(ipa,cl,tc,th,tga,refs):
   global ip_address
   ipad = "IP "+str(ipa)
   status = "CPU:"+str(cl)+"% TEMP:"+str(tc)+"|"+str(th)+"{D}C"
-  payload = {'cmd':'event,Data2="'+f'{ipad:^20}'+'","'+str(status)+'","'+f'{tga:^20}'+'","'+str(refs)+'"'}
+  payload = {'cmd':'event,Data2="'+f'{ipad:^20}'+'","'+str(status)+'","'+f'{unidecode(tga):^20}'+'","'+str(refs)+'"'}
   try:
       response = requests.get('http://'+ip_address+'/control', params=payload, timeout=1)
       response.raise_for_status()

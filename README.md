@@ -6,9 +6,9 @@
 ---------------------------
 
 Wyświetlanie  akatywności z svxlink na TG oraz informacji systemowych
-na wyswietlaczach typu LCD2004 poprzez sieć internet.
+na wyswietlaczach typu I2C LCD2004 poprzez sieć internet.
 
-Wyświetlacz podpiety do płytki Wemos D1 mini na bazie ESP8266
+Wyświetlacz I2C LCD2004 podpiety do płytki Wemos D1 mini na bazie ESP8266
 
 **Instalacja pakietu**
 ---------------------

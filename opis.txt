@@ -1,4 +1,4 @@
-Remote LCD to przesyłanie danych przez internet domowy z hotspota do LCD2004
+Remote LCD to przesyłanie danych przez internet domowy z hotspota do I2C LCD2004
 który jest połączony z płytką Wemos D1 mini (WIFI 2.4 GHz) 
 Dane wysyłane to aktywność TG na svxlink oraz danych systemowych obciążenie 
 CPU i jego temperatura lub dodatkowo jeśli podłączony jest czujnik 
@@ -15,10 +15,10 @@ blank_4MB.bin jeśli jest potrzeba wykasowania zwartości wgranej do Wemos D1/ES
 
 Plik o nazwie rules.txt zawiera wykaz rules, które należy wkopiować w ESPEasy w menu "Rules"
 
-Opis podłączenia LCD do Wemos D1 mini oraz wgrywanie i konfiguracji ESPEasy 
+Opis podłączenia I2C LCD2004 do Wemos D1 mini oraz wgrywanie i konfiguracji ESPEasy 
 znajdziesz w osobnym dokumencie o nazwie RemoteLCD.pdf
 
-Kiedy uruchomisz LCD2004 z Wemos D1 mini oraz masz skonfigurowany ESPEasy i masz ustawiony 
+Kiedy uruchomisz I2C LCD2004 z Wemos D1 mini oraz masz skonfigurowany ESPEasy i masz ustawiony 
 stały IP adres Wemos D1 możesz uruchomić instalacje pakietów niezbędnych do uruchomienia
 programu w Python3 do wysyłania danych do Remote LCD przez sieć domową internet.
 Wykonaj polecenie:

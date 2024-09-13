@@ -27,7 +27,6 @@ import time
 import requests
 from requests.exceptions import HTTPError
 from unidecode import unidecode
-#from cleantext import clean
 
 from datetime import datetime, timedelta
 from json.decoder import JSONDecodeError
@@ -180,7 +179,6 @@ class Call:
         if state not in allowed_states:
             raise Exception("Call() with unknown state '%s'. Supported states: %s." % (state, ", ".join(allowed_states)))
         self.state = state
-        #self.entrytime = entrytime
 
     def __str__(self):
         return f"Caller: {self.caller}, TG Number: {self.tgnum}, TG Name: {self.tgname}, State: {self.state}, Entry time: {self.entrytime}"

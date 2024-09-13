@@ -482,47 +482,15 @@ class Screen:
                return "TG "+str(self.current_tg)+self.get_tgname(self.current_tg)
 
     def __update_ip(self):
-        def __find_ips():
-            ips = []
-            ips4 = []
-            ips6 = []
-            nics = psutil.net_if_addrs()
-            for nic, addrs in nics.items():
-                if nic == "lo":
-                    continue
-                for addr in addrs:
-                    if addr.family not in [ socket.AF_INET, socket.AF_INET6 ]:
-                        continue
-                    # skip IPv6 link local addresses
-                    if '%' in addr.address:
-                        continue
-                    if addr.family == socket.AF_INET:
-                        ips4.append(addr.address)
-                    else:
-                        ips6.append(addr.address)
-            # prefer ipv4 and show ipv6 only if no ipv4 are available
-            if ips4:
-                ips = ips4
-            elif ips6:
-                ips = ips6
-            ips.sort()
-            if len(ips):
-                self.ips = ips
-            else:
-                self.ips = ["---.---.---.---"]
-
-        def __get_ip_index_to_display():
-            time_per_ip = 60 / len(self.ips)
-            ip_index = datetime.now().second // time_per_ip
-            return int(ip_index)
-
-        __find_ips()
-        ip_index = __get_ip_index_to_display()
-
-        msg = self.ips[ip_index]
-        if len(self.ips) > 1:
-            msg += " (%d/%d)" % (ip_index + 1, len(self.ips))
-        return msg
+       s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+       s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+       s.connect(('<broadcast>', 12345))  # 12345 is random port
+       ipa = s.getsockname()[0]
+       if len(ipa):
+            self.ipa = ipa
+       else:
+            self.ipa = "---.---.---.---"
+       return self.ipa
 
     def update_temp_and_load(self):
         def __get_cpu():

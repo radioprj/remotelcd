@@ -337,7 +337,6 @@ class Screen:
 
         self.backlighton()
 
-        self.ips = ["---.---.---.---"]
         self.init_calls()
 
         self.tg_names = {}
@@ -366,7 +365,7 @@ class Screen:
     def check_backlight_lock(self):
         if self.backlight_locked:
             tdiff = datetime.now() - self.backlight_locked
-            if tdiff > timedelta(minutes=1):
+            if tdiff > timedelta(minutes=2):
                 self.backlight_locked = False
 
     def reflector_connected(self, clean_calls=True):
@@ -436,9 +435,10 @@ class Screen:
         self.svxlink_alive()
         if self.reflector_connected_flag:
             # connection to reflector status
-             return f'{"SVXRef UP":>14}'
+             #return f'{"SVXRef UP":>14}'
+             return "Ref:C"
         else:
-             return "SVXRef Down"
+             return "Ref:D"
 
     def update_talkers_or_status(self):
         talker_shown = False

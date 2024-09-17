@@ -332,7 +332,7 @@ class Screen:
 
         self.backlight_time = backlight_time
         self.backlight_locked = False
-
+        self.backlightoff_status = False
         self.backlighton()
 
         self.init_calls()
@@ -349,11 +349,14 @@ class Screen:
         if self.backlight_locked:
             return
         backlight_on()
+        self.backlightoff_status = False
 
     def backlightoff(self):
         if self.backlight_locked:
             return
-        backlight_off()
+        if not self.backlightoff_status:
+           backlight_off()
+           self.backlightoff_status = True
 
     def backlight_lock(self):
         self.backlight_locked = datetime.now()
@@ -424,6 +427,8 @@ class Screen:
 
     def __update_talker(self, call):
         self.backlighton()
+        if self.backlight_locked == False and len(self.calls):
+            backlight_on()
         refs = self.__update_reflector_connected_stat()
         talker_msg(str(call.tgnum),call.caller, call.tgname, refs)
 
@@ -625,6 +630,7 @@ try:
 
     driver = "Remote"
 
+    backlightoff_status = False
     backlight_locked = False
     backlight_time = get_config_value(config, 'backlight_time',int)
     ext_temp_sensor = get_config_value(config, 'ext_temp_sensor', bool)

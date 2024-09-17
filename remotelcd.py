@@ -359,7 +359,6 @@ class Screen:
         self.backlight_locked = datetime.now()
 
     def check_backlight_lock(self):
-        print(self.backlight_time)
         if self.backlight_locked:
             tdiff = datetime.now() - self.backlight_locked
             if tdiff > timedelta(minutes=self.backlight_time) and self.backlight_time != 0:

@@ -326,7 +326,7 @@ class SvxLogMonitor:
                 continue
 
 class Screen:
-    def __init__(self, ip_address="127.0.0.1",blacklight_time=2,ext_temp_sensor=False):
+    def __init__(self, ip_address="127.0.0.1",backlight_time=2,ext_temp_sensor=False):
 
         self.ext_temp_sensor = ext_temp_sensor
 

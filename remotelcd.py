@@ -326,14 +326,12 @@ class SvxLogMonitor:
                 continue
 
 class Screen:
-    def __init__(self, ip_address="127.0.0.1",ext_temp_sensor=False):
-
-        self.backlighton_val = 1
-        self.backlightoff_val = 0
+    def __init__(self, ip_address="127.0.0.1",blacklight_time=2,ext_temp_sensor=False):
 
         self.ext_temp_sensor = ext_temp_sensor
 
-        self.current_backlight = None
+        self.backlight_time = backlight_time
+        self.backlight_locked = False
 
         self.backlighton()
 
@@ -348,24 +346,23 @@ class Screen:
         self.backlight_lock()
 
     def backlighton(self):
-        if self.current_backlight != self.backlighton_val:
-            backlight_on()
-            self.current_backlight = self.backlighton_val
+        if self.backlight_locked:
+            return
+        backlight_on()
 
     def backlightoff(self):
         if self.backlight_locked:
             return
-        if self.current_backlight != self.backlightoff_val:
-            backlight_off()
-            self.current_backlight = self.backlightoff_val
+        backlight_off()
 
     def backlight_lock(self):
         self.backlight_locked = datetime.now()
 
     def check_backlight_lock(self):
+        print(self.backlight_time)
         if self.backlight_locked:
             tdiff = datetime.now() - self.backlight_locked
-            if tdiff > timedelta(minutes=2):
+            if tdiff > timedelta(minutes=self.backlight_time) and self.backlight_time != 0:
                 self.backlight_locked = False
 
     def reflector_connected(self, clean_calls=True):
@@ -616,10 +613,9 @@ try:
     signal.signal(signal.SIGTERM, shutdown_signal_handler)
     signal.signal(signal.SIGINT, shutdown_signal_handler)
 
-    logger = logging.getLogger('oled')
+    logger = logging.getLogger('lcd')
     formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
+                 datefmt='%Y-%m-%d %H:%M:%S')
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
@@ -629,11 +625,11 @@ try:
     config = load_config(config_file)
 
     driver = "Remote"
-    backlighton = 1
-    backlightoff = 0
+
+    backlight_locked = False
+    backlight_time = get_config_value(config, 'backlight_time',int)
     ext_temp_sensor = get_config_value(config, 'ext_temp_sensor', bool)
     ip_address = get_config_value(config, 'ip_address', str, default="127.0.0.1")
-
     supported_drivers = ["Remote"]
 
     debug = get_config_value(config, 'debug', bool, default=False)

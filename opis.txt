@@ -31,6 +31,11 @@ Podajemy stały IP adres pod którym jest dostępny Wemos D1:
 
 ip_address = 
 
+Możemy zdefinować po jakim czasie w minutach ma być wyłączone podświetlanie
+Podając wartość 0 nie będzie wyłączna podswietlanie
+
+backlight_time = 
+
 Jeśli masz podłączony czujnik temperatury DS18B20 ustawa wartość True w linii
 
 ext_temp_sensor =

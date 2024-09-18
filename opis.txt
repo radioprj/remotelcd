@@ -23,7 +23,8 @@ stały IP adres Wemos D1 możesz uruchomić instalacje pakietów niezbędnych do
 programu w Python3 do wysyłania danych do Remote LCD przez sieć domową internet.
 Wykonaj polecenie:
 
-sudo /opt/fmpoland/remotelcd/install-pkg.sh
+sudo -s
+/opt/fmpoland/remotelcd/install-pkg.sh
 
 Konfiguracja programu znajduje się w pliku /opt/fmpoland/remotelcd/remotelcd.ini
 

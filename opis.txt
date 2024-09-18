@@ -13,9 +13,9 @@ Katalog ESPEasyFlasher/ zawiera program pod MS Windows do wgrywania firmware
 W katalogu tym jest w miarę najnowszy firmware dla ESP8266 oraz pusty obraz o nazwie
 blank_4MB.bin jeśli jest potrzeba wykasowania zwartości wgranej do Wemos D1/ESP8266.
 
-Plik o nazwie rules.txt zawiera wykaz rules, które należy wkopiować w ESPEasy w menu "Rules"
+Plik o nazwie rules1.txt zawiera wykaz rules, które należy wkopiować w ESPEasy w menu "Rules"
 
-Opis podłączenia I2C LCD2004 do Wemos D1 mini oraz wgrywanie i konfiguracji ESPEasy 
+Opis podłączenia **I2C** LCD2004 do Wemos D1 mini oraz wgrywanie i konfiguracji ESPEasy 
 znajdziesz w osobnym dokumencie o nazwie RemoteLCD.pdf
 
 Kiedy uruchomisz I2C LCD2004 z Wemos D1 mini oraz masz skonfigurowany ESPEasy i masz ustawiony 

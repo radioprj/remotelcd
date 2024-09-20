@@ -116,7 +116,7 @@ def status2_ip_msg(ipa,cl,tc,th,tga,refs):
 def talker_msg(tgnr,call,tgname,refs):
   global ip_address
   tgn = "TG "+str(tgnr)
-  payload = {'cmd':'event,Data2="'+f'{str(tgn):^20}'+'","'+f'{str(call):^20}'+'","'+f'{unidecode(tgname):^20}'+'","'+str(refs)+'"'}
+  payload = {'cmd':'event,Data2="'+f'{str(call):^20}'+'","'+f'{str(tgn):^20}'+'","'+f'{unidecode(tgname):^20}'+'","'+str(refs)+'"'}
   try:
       response = requests.get('http://'+ip_address+'/control', params=payload, timeout=5)
       response.raise_for_status()

@@ -39,7 +39,7 @@ def welcome_msg():
   global ip_address
   payload = {'cmd':'event,Data1="     FM  POLAND     ","   N E T W O R K  "'}
   try:
-      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=1)
+      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=5)
       response.raise_for_status()
       if response:
          logger.debug(f"Send welcome message")
@@ -58,11 +58,11 @@ def shutdown_msg():
   payload2 = {'cmd':'LCDcmd,off'}
   payload3 = {'cmd':'LCDcmd,clear'}
   try:
-      response = requests.get('http://'+ip_address+'/control', params=payload1, timeout=1)
+      response = requests.get('http://'+ip_address+'/control', params=payload1, timeout=5)
       time.sleep(5)
-      response = requests.get('http://'+ip_address+'/control', params=payload2, timeout=1)
+      response = requests.get('http://'+ip_address+'/control', params=payload2, timeout=5)
       time.sleep(0.5)
-      response = requests.get('http://'+ip_address+'/control', params=payload3, timeout=1)
+      response = requests.get('http://'+ip_address+'/control', params=payload3, timeout=5)
       response.raise_for_status()
       if response:
          logger.debug(f"Send shutdown message")
@@ -81,7 +81,7 @@ def status1_ip_msg(ipa,cl,tc,tga,refs):
   status = "CPU: "+str(cl)+"%  TEMP: "+str(tc)+"{D}C"
   payload = {'cmd':'event,Data2="'+str(status)+'","'+f'{ipad:^20}'+'","'+f'{unidecode(tga):^20}'+'","'+str(refs)+'"'}
   try:
-      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=1)
+      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=5)
       response.raise_for_status()
       if response:
          logger.debug(f"Send IP address and status message - cpu load and temperature, ATG")
@@ -100,7 +100,7 @@ def status2_ip_msg(ipa,cl,tc,th,tga,refs):
   status = "CPU:"+str(cl)+"% TEMP:"+str(tc)+"|"+str(th)+"{D}C"
   payload = {'cmd':'event,Data2="'+str(status)+'","'+f'{ipad:^20}'+'","'+f'{unidecode(tga):^20}'+'","'+str(refs)+'"'}
   try:
-      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=1)
+      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=5)
       response.raise_for_status()
       if response:
          logger.debug(f"Send IP address and status message - cpu load, temp and DS18B20, ATG, REF Stat")
@@ -118,7 +118,7 @@ def talker_msg(tgnr,call,tgname,refs):
   tgn = "TG "+str(tgnr)
   payload = {'cmd':'event,Data2="'+f'{str(tgn):^20}'+'","'+f'{str(call):^20}'+'","'+f'{unidecode(tgname):^20}'+'","'+str(refs)+'"'}
   try:
-      response = requests.get('http://'+ip_address+'/control', params=payload)
+      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=5)
       response.raise_for_status()
       if response:
          logger.debug(f"Send Talker info ")
@@ -135,7 +135,7 @@ def backlight_off():
   global ip_address
   payload = {'cmd':'LCDCMD,off'}
   try:
-      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=2)
+      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=5)
       response.raise_for_status()
       if response:
          logger.debug(f"Send contral low value ")
@@ -152,7 +152,7 @@ def backlight_on():
   global ip_address
   payload = {'cmd':'LCDCMD,on'}
   try:
-      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=1)
+      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=5)
       response.raise_for_status()
       if response:
          logger.debug(f"Send contral normal value ")

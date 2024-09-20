@@ -118,7 +118,7 @@ def talker_msg(tgnr,call,tgname,refs):
   tgn = "TG "+str(tgnr)
   payload = {'cmd':'event,Data2="'+f'{str(tgn):^20}'+'","'+f'{str(call):^20}'+'","'+f'{unidecode(tgname):^20}'+'","'+str(refs)+'"'}
   try:
-      response = requests.get('http://'+ip_address+'/control', params=payload, timeout=1)
+      response = requests.get('http://'+ip_address+'/control', params=payload)
       response.raise_for_status()
       if response:
          logger.debug(f"Send Talker info ")

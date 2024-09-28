@@ -3,7 +3,7 @@
 # SP2ONG 2024 SVXLink Remote LCD2004 Monitor
 # na bazie kodu oledsvx SP2AM 2024
 #
-# Working with ESP32/Wemos-D1+ESPEasy+OLED SH1306/SSD1306/SSD1309
+# Working with ESP32/Wemos-D1+ESPEasy+LCD
 #
 # options in remotelcd.ini
 #

@@ -5,6 +5,10 @@ On Data1* Do
  LCD,3,1,"%eventvalue2%"
 Endon
 On Data2* Do
+ let,120,(%rssi%+100)*2
+ if %v120% >= 100
+  let,120,99
+ endif
  LCD,1,1,"%systm_hm% %eventvalue4% WiFi:%v120%%"
  LCD,2,1,"%eventvalue1%"
  LCD,3,1,"%eventvalue2%"

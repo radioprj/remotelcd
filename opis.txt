@@ -21,10 +21,15 @@ znajdziesz w osobnym dokumencie o nazwie RemoteLCD.pdf
 Kiedy uruchomisz I2C LCD2004 z Wemos D1 mini oraz masz skonfigurowany ESPEasy i masz ustawiony 
 stały IP adres Wemos D1 możesz uruchomić instalacje pakietów niezbędnych do uruchomienia
 programu w Python3 do wysyłania danych do Remote LCD przez sieć domową internet.
-Wykonaj polecenie:
+
+---------------------------------
+Wykonaj polecenie dal systemów na bazie Debian 12:
+UWAGA gotowe obrazy maja już zainstalowany te pakiety.
 
 sudo -s
 /opt/fmpoland/remotelcd/install-pkg.sh
+----------------------------------
+
 
 Konfiguracja programu znajduje się w pliku /opt/fmpoland/remotelcd/remotelcd.ini
 

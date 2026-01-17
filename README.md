@@ -10,8 +10,11 @@ na wyswietlaczach typu I2C LCD2004 poprzez sieć internet.
 
 Wyświetlacz I2C LCD2004 podpiety do płytki Wemos D1 mini na bazie ESP8266
 
-**Instalacja pakietu**
----------------------
+**Instalacja pakietu dla systeów na bazie Debian 12**
+----------------------------------------------------
+
+**UWAGA gotowe obrazy fm poland maja juz zainstalowany te pakiety**
+
 
 **sudo -s**
 
@@ -27,7 +30,9 @@ jeśli nie masz katalogu **fmpoland** utwórz go poleceniem
 
 **cd remotelcd/**
 
-Czytaj plik **opis.txt** gdzie znajdziesz informacje o konfiguracji oraz
+**KONFIGURACJA**
+----------------
+Czytaj plik **[opis.txt]{https://raw.githubusercontent.com/radioprj/remotelcd/refs/heads/main/opis.txt}** gdzie znajdziesz informacje o konfiguracji oraz
 [RemoteLCD.pdf](https://github.com/radioprj/remotelcd/blob/main/RemoteLCD.pdf)
 
 

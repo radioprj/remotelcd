@@ -32,7 +32,7 @@ jeśli nie masz katalogu **fmpoland** utwórz go poleceniem
 
 **KONFIGURACJA**
 ----------------
-Czytaj plik **[opis.txt]{https://raw.githubusercontent.com/radioprj/remotelcd/refs/heads/main/opis.txt}** gdzie znajdziesz informacje o konfiguracji oraz
+Czytaj plik **[opis.txt](https://raw.githubusercontent.com/radioprj/remotelcd/refs/heads/main/opis.txt)** gdzie znajdziesz informacje o konfiguracji oraz
 [RemoteLCD.pdf](https://github.com/radioprj/remotelcd/blob/main/RemoteLCD.pdf)
 
 
